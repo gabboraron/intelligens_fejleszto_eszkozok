@@ -20,4 +20,22 @@ Ajánlott matek alapok:
 -------------------------------------
 
 
+## EA1 - latex/julia alapok
+- https://latex-tutorial.com/tutorials/
+- https://www.julia-vscode.org/
+
 ## EA1 - kezdeti érték probléma
+file: bead: [intelligens_fejlesztoeszkozok_bead2](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_bead2) 
+
+- https://edu.epito.bme.hu/local/coursepublicity/mod/resource/view.php?id=58832
+- [konstans variálás módszere - mateking.hu](https://www.mateking.hu/analizis-3/differencialegyenletek/a-konstans-varialas-modszere)
+- Laplace transzformációval - https://www.youtube.com/watch?v=PrdPE3YHihQ
+  - elemi törtekre bontás https://www.youtube.com/watch?v=Ukg7jS798NA 
+
+## EA2 - Euler, RK2, RK4
+file: orai: [intelligens_fejlesztoeszkozok_orai_3](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_orai_3)
+      bead: []()
+ 
+- Euler és Runge-Kutta módszerekről https://web.cs.elte.hu/blobs/diplomamunkak/bsc_matelem/2017/saho_gyorgyi.pdf
+- Runge Kutta módszerek https://www.uni-miskolc.hu/evml/database/downloads/kezikonyv-hallgatoi/fejezet10.pdf
+
