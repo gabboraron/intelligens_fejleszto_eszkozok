@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Intelligens Fejlesztőeszkozok - 2. órai jegyzet}
+\author{Burian Sándor}
+\date{Szeptember 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{feladat}
+\begin{equation}
+   \begin{cases}
+      y'-\frac{2xy}{x^{2}+1}=x^{3}+x\\
+	  y(0)=1
+    \end{cases}       
+\end{equation}
+
+I.
+
+\begin{multline}
+\\
+y'-\frac{2xy}{x^{2}+1} = 0 \\
+\frac{dy}{dx} = \frac{2xy}{x^{2}+1} \\
+\int \frac{1}{4}dy = \int \frac{2x}{x^{2}+1}\\
+ln|y| = ln|x^{2}+1|+ln|c| \\
+yn = c|x^{2}+1 \\
+\end{multline}
+
+II.
+
+\begin{multline}
+\\
+yp=k(x)(x^{2}+1) \\
+yp=k'(x)(x^{2}+1)+k(x)2x \\
+k'(x)(x^{2}+1)-k(x)2x-\frac{2xkx(x^{2}+1}{x^{2}+1} = x(x^{2}+1) \\
+\end{multline}
+
+\begin{multline}
+\\
+k(x)=x \\
+\int k'(x)dx = \int x dx \\
+k(x) = \frac{x^{2}}{2} \\
+yp = \frac{x^{2}}{2}(x^{2}+1)=\frac{x^{4}+x^{2}}{2} \\
+\end{multline}
+
+III.
+
+\begin{multline}
+\\
+y = Yn + yp = (x^{2}+1) + \frac{x^{4}+x^{2}}{2} \\
+1= c \\
+y_{imp} =  (x^{2}+1) + \frac{x^{4}+x^{2}}{2} \\
+\end{multline}
+
+
+\section{feladat}
+
+\begin{equation}
+y"-4y'+4y=12x-4      
+\end{equation}
+
+I.
+\begin{multline}
+\\
+y"-4y'+4y=0 \\
+\lambda^{2}-4\lambda+4 = 0 \\
+\lambda_{1,2} = \frac{4\pm \sqrt{16-16}}{2}=2 \\
+yh= c_{1} e^{2x}+c_{2} e^{2x} \\
+\end{multline}
+
+II.
+\begin{multline}
+\\
+yp = Ax+B \\
+y'p = Ax \\
+y"p = 0 \\
+\\
+-4Ax+4B = 12x-4 \\
+A = 3 \\
+b = 2 \\
+\Rightarrow yp = 3x+2
+\end{multline}
+
+III.
+
+\begin{multline}
+\\
+y = c_{1}e^{2x}+c_{2}xe^{2x}+3x+2 \\
+y' = c_{2}e^{2x}+c_{2}e^{2x}+2c_{2}xe^{2x}+3 \\
+3 = c_{1}+2 \\
+8 = 2+c_{2}+3 \Rightarrow c_{2}=3 \\
+\end{multline}
+
+\begin{equation}
+y_{imp} = e^{2x}+3xe^{2x}+3x+2
+\end{equation}
+
+\section{feladat}
+
+\begin{equation}
+   \begin{cases}
+    y' = f(x,y) \\
+    y(x_{0}=y_{0}
+    \end{cases}
+\end{equation}
+
+\subsection{Euleres megoldása}
+
+\begin{equation}
+   \begin{cases}
+	x_{n+1}=x_{n}+h \\
+	y_{n+1}-y_{n} = hAn \\
+	y_{n+1} = y_{n} +hAn \\
+	An = f(x_{n},y_{n})\\
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+   \begin{cases}
+    y' = x^2-y^2 \\
+    y_{0} = 1 \\
+    h = 0,1 \\
+    \end{cases}
+\end{equation}
+2 lépés:
+\begin{center}
+\begin{tabular}{ c c c c c }
+ n & $x_{n}$ & $y_{n}$ & An & hAn \\ 
+ 0 & 0 & 1 & -1 & -0,1  \\  
+ 1 & 0,1 & 0,9 & -0,8 & -0,08 \\
+ 2 & 0,2 & 0,82 & & \\    
+\end{tabular}
+\end{center}
+
+\subsection{Runge-Kutta}
+
+\begin{equation}
+   \begin{cases}
+    x_{n+1} = x_{n}+h \\
+    \rightarrow An - f(An, yn) \\
+    \rightarrow \hat{y_{n+1}} = y_{n}+hAn \\
+    \rightarrow B_{n} = f(y_{n+1}, \hat{Y}_{n+1}) \\
+    \rightarrow y_{n+1} = y_{n}+h(\frac{A_{n}+B_{n}}{2})
+    \end{cases}
+\end{equation}
+
+\subsection{RKM}
+
+\begin{equation}
+   \frac{A_{n}+2B_{n}+2C_{n}+B_{n}}{6}
+\end{equation}
+
+\end{document}
