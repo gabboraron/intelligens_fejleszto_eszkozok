@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Intelligens Fejlesztőeszkozok - 4. beadandó}
+\author{Sándor Burian}
+\date{Szeptember 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{feladat}
+
+Intervallum felező módszerrel \footnote{https://www.uni-miskolc.hu/~matgt/pdf/nummod/NumMod.pdf (elérés 2022-10-01) alapján}
+\begin{equation}
+    5x-4 = sin(tanh(-3x+2)); [-10,10] intervallumon 
+\end{equation}
+
+\begin{multline}
+\\
+f(x) = 5x-4-sin(tanh(-3x+2)) \\
+f(-10)=-50-4-sin(tanh(32)) = -54 - 0,017452406 = -54,017452406 \\
+f(10) = 50-4 - sin(tanh(-28)) = 46 - (-0,017452406) = 46,017452406 \\
+\\
+\Rightarrow f(a)f(b)<0 \Rightarrow intervallumfelezes: \dfrac{a+b}{2} \Rightarrow \frac{10+(-10)}{2} = 0 \\
+\end{multline}
+
+\begin{multline}
+\\
+f(0) = -4-sin(tanh(2)) = -4-0,016824661 = -4,016824661\\
+\Rightarrow f(-10)f(0) > 0 \Rightarrow [0,10] intervallumot felezzuk \Rightarrow [0,+5] \\
+\end{multline}
+
+\begin{multline}
+\\
+f(5) = 25-4-sin(tanh(-13)) = 21,017452406 \\
+f(0)f(5) < 0 \Rightarrow uj intervallum [0,2.5] \\
+f(2.5) = 12.5-4-sin=tanh(-5.5)) = 8,517451824 \\
+\Rightarrow f(0)f(2.5) < 0 uj intervallum: [0, 1.25] \\
+f(1.25) = 6.25-4-sin(tanh(-1.75)) = 2,266429363 \\
+\Rightarrow f(0)f(1.25) < 0 \Rightarrow uj intervallum [0, 0.625] \\
+f(0.625) = 3.125-4-sin=tanh(0.125)) = -0,877170368 \\
+\Rightarrow f(0.625)f(10) < 0 \Rightarrow ujintervallum [0.625,10] felezese [0.625,5.3125]\\
+f(5.3125) = 26.5625-4-sin(tanh(-13.9375)) = 22,017452406 \\
+\Rightarrow \dfrac{0.625+5.3125}{2} = 2.96875 \Rightarrow [0.625, 2.96875] \\
+f(2.96875) = 14.84375 - 4 - sin(tanh(-6.90625)) = 10.861202371 \\
+\Rightarrow uj intervallum [0.625, 1.796875] \\
+f(1.796875) = 8.984375-4-sin(tanh(-3.3903625)) = 5.001787843 \\
+\Rightarrow uj intervallum [0.625, 0.91796875] \\
+f(0.91796875) = = 4.58984375 - 4 -sin(tanh(-0.314453125)) = -0.137263922\\
+\Rightarrow uj intervallum [0.625, 0.771484375]\\
+f(0.771484375) = 3.857421875 - 4 -sin(tanh(-0.314453125)) = -0.137263922\\
+\\
+\Rightarrow f(0.625)f(771484375)>0
+\end{multline}
+
+Mivel a két függvényérték szorzata nem negatív, ezért leállunk. A függvény zéruspontja a [0.625, 771484375]. f(0.625) = -0,877170368 és f(0.771484375) = -0.137263922 küzül az utóbbi van közelebb a 0-hoz, így látható, hogy 0.771484375 pontról van szó.
+
+\section{feladat}
+
+\begin{equation}
+x+3= e^{sin(x+3)}
+\end{equation}
+
+Intervallum felező módszerrel [-10,10] között.
+
+\begin{multline}
+\\
+f(x) = x+3-e^{sin(x+3)} \\
+f(-10) = -7 -e^{0.121869343} = -7.885264027\\
+f(10) = 13-e^{0.224951054} = 11.747738578\\
+\Rightarrow f(-10)f(10) < 0 \Rightarrow \dfrac{10+10}{2} = 0 \\
+\\
+f(0) = 3-e^{0.052335956} = 1.94627031\\
+\Rightarrow [-10,0] \rightarrow [-10,-5]\\
+f(-5) = -2-e^{0.034899497} = 2.965702467\\
+\Rightarrow uj intervalum [-10,-7.5] \\
+f(-7.5) = -4.5 - e^{0.078459096} = -5.424539877 \\
+\Rightarrow f(-10)f(-7.5)>0 \Rightarrow intervallumvaltas [-7.5,-5] \rightarrow -6.25\\
+f(-6.25)=-3.25-e^{0.108866875}=-4.146849803\\
+\Rightarrow [-6.25,-5] intervallum felezese -5.625\\
+f(-5.625)=-2.625-e^{0.09801714}=-2.906633364\\
+\Rightarrow [-5.625,-5] fele -5.3125\\
+f(-5.3125) = -2.3125-e^{0.040349782} = -3.272953431\\
+\Rightarrow [-5.3125, -5] fele -5.15625\\
+f(-5.15625) = -2.15625-e^{-0.037624779}=-3.119324239\\
+\Rightarrow [-5.15625,-5] fele -5.078125\\ 
+f(-5.078125) = -2.078125-e^{-0.036262172}=-3.042512425\\
+\Rightarrow [-5.078125,-5] fele -5.0390625\\
+\end{multline}
+Tehát egyértelműen tart \textit{-5}-be a végtelenben.
+
+\section{feladat}
+
+\begin{equation}
+6x+3 = tanh(tan(cos(-4x^{2}-3)))
+\end{equation}
+
+[-10,10] tartományon, Húr módszerrel
+
+Húr engyelete:
+\begin{multline}
+y-f(a)=\dfrac{f(b)-f(a)}{b-a}(x-a)\\
+x=\dfrac{af(b)-bf(a)}{f(b)-f(a)}\\
+\end{multline}
+Legyen c (c, 0) pont az OX tengely metszéspontja a húron.
+
+Ekkor:
+\begin{multline}
+f(-10)=-60+3-tanh(tan(cos(-403))) = -57.01276453\\
+f(10) = 60+3-tanh(tan(cos(-403))) = 62.98723547\\
+\end{multline}
+
+A(-10, -57.01276453)) és B(10, 62.98723547) húr és OX tengely metszéspontját keressük.
+
+\begin{multline}
+c = \dfrac{-10*62.98723547-10*(-57.01276453)}{62.98723547+57.01276453} =0.497872578\\
+f(-0.497872578) = -6 \dot{•} 0.497872578 + 3 -0.017410957 = -0.004646425\\
+\end{multline}
+
+Tehát A'(-0.497872578, -0.004646425) és B pontokat összekötő húr OX metszéspontját:
+
+\begin{multline}
+c' = \dfrac{0.497872578*62.987235457-10(-0.004646425)}{62.987235457 + 0.004646425} = -0.497098231\\
+f(-0.497098231) = -6*0.497098231+3-0,017411023 = -0.000000409\\
+\end{multline}
+
+
+\section{feladat}
+\begin{equation}
+x+2 = x^{3}
+\end{equation}
+
+[-10,10] tartományon, Newton-Raphson módszerrel
+
+\begin{multline}
+f(x) = x+2 - x^{3}\\
+f'(x) = 1-3x^{2}\\
+f''(x)=-6x\\
+\end{multline}
+
+\begin{multline}
+f(-10) = -8+1000= 992\\
+f'(-10) = 1 - 300 = -299\\
+f"(-10) = 60\\
+f(10) = 12-1000 = -988\\
+x1 = \dfrac{-10 - 992 }{-299} = -10+3.317725753 = -6.682274247\\
+f( -6.682274247)= 293,699908494\\
+x2 = -6.682274247 - \dfrac{f(-6.682274247)}{ f'(-6.682274247)} = -4,473312793\\
+f(-4,473312793)=87,04003517\\
+x3 = - 4,473312793 - \dfrac{f(-4,473312793)}{f'(-4,473312793)}= -2,998847224\\
+f(-2,998847224)=25,970039783\\
+x4 = -2,998847224 - \dfrac{f(-2,998847224) }{f'(-2,998847224) }= -1,999201901\\
+f(-1,999201901)=7,991224732\\
+x5 = -1,999201901 - \dfrac{f(-1,999201901)}{f'(-1,999201901)}= -1,272093993\\
+f(-1,272093993)=2,786437926\\
+x6 = -1,272093993 - \dfrac{f(-1,272093993)}{f'(-1,272093993)} = -0,549220602\\
+f(-0,549220602)=1,616448096\\
+x7 = -0,549220602 - \dfrac{f(-0,549220602)}{f'(-0,549220602)} =-1,397781052\\
+f(-1,397781052) = 3,333192202\\
+\end{multline}
+Az előző pontosabb, így leállási feltétel teljesül f(-0,549220602)=1,616448096
+
+\section{feladat}
+\begin{equation}
+f(x)= sin(x-5)
+\end{equation}
+
+[-10,10] tartományon, Fixpont iterációval 
+
+\begin{multline}
+f(x)=0\\
+sin(x-5)=0\\
+sin(x)cos(5)-cos(x)sin(5)=0\\
+\end{multline}
+
+jelöljük:
+\begin{multline}
+y=sin(x)\\
+sin^{2}(x)+cos^{2}(x)=1 \Rightarrow cos^{2}(x) = 1-y^{2}\\
+\end{multline}
+
+\begin{multline}
+sin(x)cos(5)=cos(x)sin(5) \\
+y^{2}cos^{2}(5) = (1-y^{2})sin^{2}(5)\\
+y^{2}cos^{2}(5)+y^{2}sin^{2}(5) = sin^{2}(5) \leftarrow sin^{a}+cos^{2}(a) = 1 \\
+y^{2}(cos^{2}(5)+sin^{2}(5)) = sin^{2}(5)\\
+y^{2} = sin^{2}(5) \leftarrow y=sin(x) \\
+sin(x)=sin(5) \Rightarrow x=5
+\end{multline}
+
+a függvény x+g(x) alakban:
+
+\begin{multline}
+sin(x-5)=x-5-\frac{(x-5)^{3}}{3!}+\frac{(x-5)^{5}}{5!} - \frac{(x-5)^{7}}{7!} + ....
+x_{0} = 5.5\\
+x_{1} = 0.5-\dfrac{0.125}{6}+\dfrac{0.03125}{120}-\dfrac{0.0078125}{5040} = 0.479425533\\
+x_2 = 0.479425533-5 - \dfrac{(0.479425533-5)^3}{6} +\dfrac{(0.479425533-5)^5}{120} - \dfrac{0.479425533-5)^7}{5040} = 2.798730405\\
+\Rightarrow x_2 - 5 = -2.201269595\\
+x_3 = 2,798730405 - 5 - \dfrac{-2,201269595^3}{6}+\dfrac{-2,201269595^5}{120} - \dfrac{-2,201269595^7}{5040} =-0,804547209\\
+\Rightarrow x_3 - 5 = -5,804547209\\
+\end{multline}
+
+\section{feladat}
+\begin{equation}
+f(x)= cos(x-6) =0
+\end{equation}
+
+\begin{multline}
+cos(x)cos(6)+sin(x)sin(6) = 0\\
+cos(x)cos(6)=-sin(x)sin(6) = 0\\
+cos^{2}(x)cos^{2}(6)=sin^{2}(x)sin^{2}(6)\\
+(1-sin^{2}(x))cos^{2}(6) = sin^{2}(x)sin^{2}(6)\\
+sin^{2}(x)(sin^{2}(x)cos^{2}(6) = 1) \\
+sin^{2}(x)= 1 \\
+x = \pm 90\\
+x_0 = 2 \\
+x_1 = 1-(-4)^{2}/2 +(-4)^{4}/4! - (-4)^{6}/6! + (-4)^{8}/8! = -0,396825397\\
+x_2 = f(-0,396825397-6)= 24,680488403\\
+x_3 = f(24,680488403-6) = 313658,348483175\\
+\end{multline}
+
+
+
+
+\begin{equation}
+   \begin{cases}
+      5x-4 = sin(tanh(-3x+2))
+    \end{cases}       
+\end{equation}
+ 
+\end{document}
