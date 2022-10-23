@@ -17,6 +17,8 @@ Ajánlott matek alapok:
   - még - Szili László féle:   https://numanal.inf.elte.hu/~szili/Oktatas/index_okt_2020-21-22-23.htm
 
 
+Julia plot lehetőségekre példák: https://gist.github.com/gizmaa/7214002
+
 -------------------------------------
 
 
@@ -34,8 +36,20 @@ file: bead: [intelligens_fejlesztoeszkozok_bead2](https://github.com/gabboraron/
 
 ## EA2 - Euler, RK2, RK4
 file: orai: [intelligens_fejlesztoeszkozok_orai_3](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_orai_3)
-      bead: []()
+      bead: [intelligens_fejlesztoeszkozok_bead3](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_bead3)
  
 - Euler és Runge-Kutta módszerekről https://web.cs.elte.hu/blobs/diplomamunkak/bsc_matelem/2017/saho_gyorgyi.pdf
 - Runge Kutta módszerek https://www.uni-miskolc.hu/evml/database/downloads/kezikonyv-hallgatoi/fejezet10.pdf
+
+## EA3 - Intervallumfelező
+- [órai anyag](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_orai_4)
+- [bead](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_bead4)
+
+## EA4 - false position, Newtoni módszer, Newton Raphson, kvázi Newton, Broydan, Sherman Morrison, Stephanson
+- [jegyzetem](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/blob/main/intelligens_fejlesztoeszkozok_orai_5/latex/dokumentacio.pdf)
+- [bead](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_bead5)
+
+## EA5 - vektoreterek
+- https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_orai_6
+- [bead](https://github.com/gabboraron/intelligens_fejleszto_eszkozok/tree/main/intelligens_fejlesztoeszkozok_bead6)
 
