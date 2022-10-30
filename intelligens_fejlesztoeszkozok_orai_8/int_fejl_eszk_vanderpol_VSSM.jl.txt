@@ -1,0 +1,103 @@
+#vanDerPol oszcillator VSSM szabalyzasa
+
+#Szabalyzo parameterek
+K=0
+w=0
+Λ=0
+
+#Szimulacio parameterek
+δt=1e-3
+LONG=Int(5e4)
+l=LONG-1
+
+##########################
+# Exact Model Parameters #
+##########################
+
+μₑ=0.4
+ωₑ=0.46
+αₑ=1
+λₑ=0.1 
+mₑ=1
+
+################################
+# Approximate Model Parameters #
+################################
+
+μₐ=0.5
+ωₐ=0.42
+αₐ=0.9
+λₐ=0.09
+mₐ=0.8  
+
+#Nominalis Palya parameterek
+A=2
+ω=0.5
+
+#tombok
+#ido
+t=zeros(LONG)
+#nominalis
+qN=zeros(LONG)
+qN_p=zeros(LONG)
+qN_pp=zeros(LONG)
+
+qDes_pp=zeros(LONG)
+u=zeros(LONG)
+
+q=zeros(LONG)
+q_p=zeros(LONG)
+q_pp=zeros(LONG)
+
+hint=0
+#Szimulacio
+for i=1:l
+    global hint
+    #ido
+    t[i]=i*δt
+    #nominalis palya
+    qN[i]=A*sin(ω*t[i])
+    qN_p[i]=A*ω*cos(ω*t[i])
+    qN_pp[i]=-A*ω^2*sin(ω*t[i])
+    #hiba
+    h=qN[i]-q[i]
+    h_p=qN_p[i]-q_p[i]
+    #ErrorMetrics
+    S=Λ^2*hint+2*Λ*h+h_p
+    #Kinematic_Block
+    qDes_pp[i]=Λ^2*h+2*Λ*h_p+qN_pp[i]+K*tanh(S/w)
+    #Approx Model
+    #Approx
+    u[i]=mₐ*qDes_pp[i]-μₐ*(1-q[i]^2)*q_p[i]+ωₐ^2*q[i]+αₐ*q[i]^3+λₐ*q[i]^5
+    #Exact System
+    q_pp[i]=(u[i]+μₑ*(1-q[i]^2)*q_p[i]-ωₑ^2*q[i]-αₑ*q[i]^3-λₑ*q[i]^5)/mₑ
+
+    #Euler Integralok
+    q_p[i+1]=q_p[i]+δt*q_pp[i]
+    q[i+1]=q[i]+δt*q_p[i]
+    hint=hint+δt*h
+
+end #for
+using PyPlot
+figure(1)
+grid(true)
+title("Nominalis es realizalt trajectoria")
+plot(t[1:l],qN[1:l])
+plot(t[1:l],q[1:l],"r--")
+
+figure(2)
+grid(true)
+title("Kovetesi hiba")
+plot(t[1:l],qN[1:l]-q[1:l])
+
+figure(3)
+grid(true)
+title("Fazis ter")
+plot(qN[1:l],qN_p[1:l])
+plot(q[1:l],q_p[1:l],"r--")
+
+
+figure(4)
+grid(true)
+title("szabalyzo jel")
+plot(t[1:l],u[1:l])
